@@ -38,9 +38,9 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "fullscreen": true,
         "resizable": true,
-        "title": "gum-talk",
+        "title": "TriplePeace式 ガムトーク",
         "width": 800,
         "height": 600
       }

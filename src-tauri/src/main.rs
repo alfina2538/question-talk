@@ -9,7 +9,7 @@ use tauri::api::dialog::blocking::FileDialogBuilder;
 #[tauri::command]
 fn select_question_file() -> String {
     let path = FileDialogBuilder::new()
-        .add_filter("csv file", &["csv"])
+        .add_filter("text file", &["txt"])
         .pick_file();
 
     if path.is_none() {
@@ -20,35 +20,25 @@ fn select_question_file() -> String {
 }
 
 #[tauri::command]
-fn draw_card(file_path: String, select_card_num: i32) -> Vec<String> {
+fn select_rand_question(file_path: String) -> Vec<String> {
     let file = File::open(&file_path).unwrap();
     let bf_file = BufReader::new(file);
     let mut index = 1;
     let mut qst = String::new();
 
-    if select_card_num == 0 {
-        let mut rng = rand::thread_rng();
-        let qst_num = get_question_num(&file_path);
-        let i: i32 = rng.gen_range(1..qst_num + 1);
+    let mut rng = rand::thread_rng();
+    let qst_num = get_question_num(&file_path);
+    let i: i32 = rng.gen_range(1..qst_num + 1);
 
-        for line in bf_file.lines() {
-            let l = line.unwrap();
-            if index == i {
-                qst = l;
-                break;
-            }
-            index += 1
+    for line in bf_file.lines() {
+        let l = line.unwrap();
+        if index == i {
+            qst = l;
+            break;
         }
-    } else {
-        for line in bf_file.lines() {
-            let l = line.unwrap();
-            if index == select_card_num {
-                qst = l;
-                break;
-            }
-            index += 1;
-        }
+        index += 1
     }
+
     let qsts = qst.split(",");
     let mut result = Vec::new();
     for q in qsts {
@@ -61,11 +51,11 @@ fn draw_card(file_path: String, select_card_num: i32) -> Vec<String> {
 #[tauri::command]
 fn get_rand_num() -> i32 {
     let mut rng = rand::thread_rng();
-    rng.gen_range(1..6 + 1)
+    rng.gen_range(1..4 + 1)
 }
 
 #[tauri::command]
-fn get_card_num(file_path: String) -> i32 {
+fn get_question_num_v(file_path: String) -> i32 {
     let file = File::open(file_path).unwrap();
     let bf_file = BufReader::new(file);
     let mut num = 0;
@@ -89,9 +79,9 @@ fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             select_question_file,
-            draw_card,
+            select_rand_question,
             get_rand_num,
-            get_card_num
+            get_question_num_v
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

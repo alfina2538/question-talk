@@ -4,19 +4,15 @@ import "./App.css";
 
 function App() {
   const [file_path, setFilePath] = useState("");
+  const [file_name, setFileName] = useState("");
   const [input_premit, setInputPremit] = useState(true);
   const [select_question, setSelectQuestion] = useState("");
   const [current_question, setCurrentQuestion] = useState(0);
-  const [card_num, setCardNum] = useState(0);
-  const [disabled_select_card_num, setDisabledSelectCardNum] = useState(true);
-  const [select_card_num, setSelectCardNum] = useState(0);
 
   const [qst_1, setQst1] = useState("");
   const [qst_2, setQst2] = useState("");
   const [qst_3, setQst3] = useState("");
   const [qst_4, setQst4] = useState("");
-  const [qst_5, setQst5] = useState("");
-  const [qst_6, setQst6] = useState("");
 
   // 任意入力許可の変更
   function ChangeInputPremit() {
@@ -30,32 +26,30 @@ function App() {
   // ファイルの選択
   async function SelectQuestionFile() {
     const path: string = await invoke("select_question_file");
+    const file_name = path.split("\\").pop();
     setFilePath(path);
-    if (path !== "") {
-      setCardNum(await invoke("get_card_num", { filePath: path }));
-      setDisabledSelectCardNum(false);
+    if (file_name !== undefined) {
+      setFileName(file_name);
     }
   }
 
   // cardを引く
-  async function DrawCard() {
+  async function SelectRandQuestion() {
     if (file_path === "") { alert("ファイルを選択してください。"); return; }
     setSelectQuestion("");
-    const card: string[] = await invoke("draw_card", { filePath: file_path, selectCardNum: select_card_num });
-    if (card.length < 6) { alert("お題の数が足りません"); return; }
+    const card: string[] = await invoke("select_rand_question", { filePath: file_path });
+    if (card.length < 4) { alert("お題の数が足りません"); return; }
     setCurrentQuestion(0);
     setQst1(card[0]);
     setQst2(card[1]);
     setQst3(card[2]);
     setQst4(card[3]);
-    setQst5(card[4]);
-    setQst6(card[5]);
   }
 
   // cardの選択
-  async function SelectCard() {
-    if (qst_1 === "" || qst_2 === "" || qst_3 === "" || qst_4 === "" || qst_5 === "" || qst_6 === "") {
-      alert("カードを引いていないか\n未入力の項目があります。");
+  async function SelectQuestion() {
+    if (qst_1 === "" || qst_2 === "" || qst_3 === "" || qst_4 === "") {
+      alert("お題を選出していないか\n未入力の項目があります。");
       return;
     }
     const rand_num: number = await invoke("get_rand_num");
@@ -76,26 +70,18 @@ function App() {
         setSelectQuestion(qst_4);
         setCurrentQuestion(4);
         break;
-      case 5:
-        setSelectQuestion(qst_5);
-        setCurrentQuestion(5);
-        break;
-      case 6:
-        setSelectQuestion(qst_6);
-        setCurrentQuestion(6);
-        break;
     }
   }
 
   return (
     <div className="app-contents">
       <div className="app-name">
-        <h3>TriplePeace式 ガムトーク</h3>
+        <h3>TriplePeace式 お題トーク</h3>
       </div>
       <div className="app-body">
         <div className="file-select">
           <p>ファイル選択</p>
-          <input className="file-name" type="text" title="question file" value={file_path} readOnly={true} />
+          <input className="file-name" type="text" title="question file" value={file_name} readOnly={true} />
           <input className="bt-file-select" type="button" value="file select"
             onClick={(e) => {
               e.preventDefault();
@@ -123,6 +109,8 @@ function App() {
                 }
               }}/>
           </div>
+        </div>
+        <div className="row-contents">
           <div className="content">
             <p>お題 3</p>
             <input type="text" id="qst-3" title="qst 3" value={qst_3} readOnly={input_premit}
@@ -133,8 +121,6 @@ function App() {
                 }
               }}/>
           </div>
-        </div>
-        <div className="row-contents">
           <div className="content">
             <p>お題 4</p>
             <input type="text" id="qst-4" title="qst 4" value={qst_4} readOnly={input_premit}
@@ -145,63 +131,28 @@ function App() {
                 }
               }}/>
           </div>
-          <div className="content">
-            <p>お題 5</p>
-            <input type="text" id="qst-5" title="qst 5" value={qst_5} readOnly={input_premit}
-              onChange={(e) => {
-                setQst5(e.currentTarget.value);
-                if (current_question === 5) {
-                  setSelectQuestion(e.currentTarget.value);
-                }
-              }}/>
-          </div>
-          <div className="content">
-            <p>お題 6</p>
-            <input type="text" id="qst-6" title="qst 6" value={qst_6} readOnly={input_premit}
-              onChange={(e) => {
-                setQst6(e.currentTarget.value);
-                if (current_question === 6) {
-                  setSelectQuestion(e.currentTarget.value);
-                }
-              }}/>
-          </div>
         </div>
         <div className="select-question">
           <h2>お題は「<span>{select_question}</span>」です</h2>
         </div>
         <div className="controlls">
-          <input type="button" value="draw card"
+          <input type="button" value="ランダム選出"
             onClick={(e) => {
               e.preventDefault();
-              DrawCard();
+              SelectRandQuestion();
           }} />
-          <input type="button" value="select question"
+          <input type="button" value="お題選出"
             onClick={(e) => {
               e.preventDefault();
-              SelectCard();
+              SelectQuestion();
           }} />
-        </div>
-        <div className="card-select">
-          <input className="select-num" type="number" placeholder="カード番号" min={1} max={card_num} disabled={disabled_select_card_num}
-            onChange={(e) => {
-              const current_num = e.currentTarget.value;
-              let num: number = +current_num;
-              if (num < 0) {
-                num = 0;
-              }
-              if (num > card_num) {
-                num = card_num;
-              }
-              setSelectCardNum(num);
-              e.currentTarget.value = num.toString();
-            }
-          }/>
         </div>
         <div className="settings">
           <input type="checkbox" value="input_premit" title="premit optionaly input"
             onClick={(e) => {
               ChangeInputPremit();
-            }}/>
+            }} />
+          <p>任意入力の許可</p>
         </div>
       </div>
     </div>
