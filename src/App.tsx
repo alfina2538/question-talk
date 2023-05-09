@@ -90,11 +90,11 @@ function App() {
   return (
     <div className="app-contents">
       <div className="app-name">
-        <h3>TriplePeace Type GumTalk</h3>
+        <h3>TriplePeace式 ガムトーク</h3>
       </div>
       <div className="app-body">
         <div className="file-select">
-          <p>File Select</p>
+          <p>ファイル選択</p>
           <input className="file-name" type="text" title="question file" value={file_path} readOnly={true} />
           <input className="bt-file-select" type="button" value="file select"
             onClick={(e) => {
@@ -104,7 +104,7 @@ function App() {
         </div>
         <div className="row-contents">
           <div className="content">
-            <p>question 1</p>
+            <p>お題 1</p>
             <input type="text" id="qst-1" title="qst 1" value={qst_1} readOnly={input_premit}
               onChange={(e) => {
                 setQst1(e.currentTarget.value);
@@ -114,7 +114,7 @@ function App() {
               }}/>
           </div>
           <div className="content">
-            <p>question 2</p>
+            <p>お題 2</p>
             <input type="text" id="qst-2" title="qst 2" value={qst_2} readOnly={input_premit}
               onChange={(e) => {
                 setQst2(e.currentTarget.value);
@@ -124,7 +124,7 @@ function App() {
               }}/>
           </div>
           <div className="content">
-            <p>question 3</p>
+            <p>お題 3</p>
             <input type="text" id="qst-3" title="qst 3" value={qst_3} readOnly={input_premit}
               onChange={(e) => {
                 setQst3(e.currentTarget.value);
@@ -136,7 +136,7 @@ function App() {
         </div>
         <div className="row-contents">
           <div className="content">
-            <p>question 4</p>
+            <p>お題 4</p>
             <input type="text" id="qst-4" title="qst 4" value={qst_4} readOnly={input_premit}
               onChange={(e) => {
                 setQst4(e.currentTarget.value);
@@ -146,7 +146,7 @@ function App() {
               }}/>
           </div>
           <div className="content">
-            <p>question 5</p>
+            <p>お題 5</p>
             <input type="text" id="qst-5" title="qst 5" value={qst_5} readOnly={input_premit}
               onChange={(e) => {
                 setQst5(e.currentTarget.value);
@@ -156,7 +156,7 @@ function App() {
               }}/>
           </div>
           <div className="content">
-            <p>question 6</p>
+            <p>お題 6</p>
             <input type="text" id="qst-6" title="qst 6" value={qst_6} readOnly={input_premit}
               onChange={(e) => {
                 setQst6(e.currentTarget.value);

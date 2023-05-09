@@ -61,26 +61,32 @@
 }
 
 .content {
-  margin: 0px 30px;
+  margin: 0px 25px;
 }
 
 .content input {
   background-color: #2f2f2f;
+  background: url("/src/assets/window.svg") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+  height: 80%;
+  width: 100%;
   color: white;
   font-size: 30px;
-  border: rgb(97, 128, 244) 3px solid;
-  border-radius: 5px;
+  border: #4153f0 3px solid;
+  border-radius: 10px;
   padding: 10px 20px;
 }
 
 .select-question {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .select-question span {
   color: red;
+  font-size: 50px;
 }
 
 .card-select {
