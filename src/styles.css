@@ -1,0 +1,139 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: #f6f6f6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.file-select {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.file-select p {
+  margin-right: 20px;
+}
+
+.file-name {
+  width: 700px;
+  margin-right: 20px;
+  font-size: large;
+  background-color: #2f2f2f;
+  color: white;
+  border: #4153f0 3px solid;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.bt-file-select {
+  background-color: #2f2f2f;
+  color: rgb(138, 216, 255);
+  font-size: medium;
+  border: #4153f0 3px solid;
+  border-radius: 30px;
+  padding: 10px 20px;
+  box-shadow: 0 0.3em 0 #4153f0;
+}
+
+.bt-file-select:hover {
+  opacity: 0.7;
+}
+
+.bt-file-select:active {
+  box-shadow: 0 0.1em 0 #4153f0;
+  transform: translateY(0.2em);
+}
+
+.row-contents {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.content {
+  margin: 0px 30px;
+}
+
+.content input {
+  background-color: #2f2f2f;
+  color: white;
+  font-size: 30px;
+  border: rgb(97, 128, 244) 3px solid;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.select-question {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.select-question span {
+  color: red;
+}
+
+.card-select {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.select-num {
+  background-color: #2f2f2f;
+  color: white;
+  font-size: medium;
+  padding: 10px 20px;
+}
+
+.controlls {
+  display: flex;
+  justify-content: center;
+}
+
+.controlls input {
+  background-color: #2f2f2f;
+  color: rgb(138, 216, 255);
+  font-size: medium;
+  padding: 10px 20px;
+  margin-top: 50px;
+  margin-right: 20px;
+  border: rgb(97, 129, 244) 3px solid;
+  border-radius: 30px;
+  box-shadow: 0 0.3em 0 #4153f0;
+}
+
+.controlls input:hover {
+  opacity: 0.7;
+}
+
+.controlls input:active {
+  box-shadow: 0 0.1em 0 #4153f0;
+  transform: translateY(0.2em);
+}
+
+.card-select {
+  display: flex;
+  justify-content: center;
+}
+
+.settings {
+  margin-left: 100px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: #2f2f2f;
+  }
+}
