@@ -12,6 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: auto;
 }
 
 .file-select {
@@ -28,21 +29,17 @@
   width: 700px;
   margin-right: 20px;
   font-size: large;
-  background-color: #2f2f2f;
-  color: white;
-  border: #4153f0 3px solid;
+  border: #5c9cf0 3px solid;
   border-radius: 5px;
   padding: 10px 20px;
 }
 
 .bt-file-select {
-  background-color: #2f2f2f;
-  color: rgb(138, 216, 255);
   font-size: medium;
-  border: #4153f0 3px solid;
+  border: #5c9cf0 3px solid;
   border-radius: 30px;
   padding: 10px 20px;
-  box-shadow: 0 0.3em 0 #4153f0;
+  box-shadow: 0 0.3em 0 #5c9cf0;
 }
 
 .bt-file-select:hover {
@@ -50,7 +47,7 @@
 }
 
 .bt-file-select:active {
-  box-shadow: 0 0.1em 0 #4153f0;
+  box-shadow: 0 0.1em 0 #5c9cf0;
   transform: translateY(0.2em);
 }
 
@@ -66,15 +63,13 @@
 }
 
 .content input {
-  background-color: #2f2f2f;
   background: url("/src/assets/window.svg") no-repeat center;
   opacity: 0.8;
   background-size: cover;
   height: 80%;
   width: 100%;
-  color: white;
   font-size: 30px;
-  border: #4153f0 3px solid;
+  border: #5c9cf0 3px solid;
   border-radius: 10px;
   padding: 10px 20px;
 }
@@ -97,8 +92,6 @@
 }
 
 .select-num {
-  background-color: #2f2f2f;
-  color: white;
   font-size: medium;
   padding: 10px 20px;
 }
@@ -109,15 +102,13 @@
 }
 
 .controlls input {
-  background-color: #2f2f2f;
-  color: rgb(138, 216, 255);
   font-size: medium;
   padding: 10px 20px;
   margin-top: 50px;
   margin-right: 20px;
-  border: rgb(97, 129, 244) 3px solid;
+  border: rgb(72, 104, 218) 3px solid;
   border-radius: 30px;
-  box-shadow: 0 0.3em 0 #4153f0;
+  box-shadow: 0 0.3em 0 #5c9cf0;
 }
 
 .controlls input:hover {
@@ -125,7 +116,7 @@
 }
 
 .controlls input:active {
-  box-shadow: 0 0.1em 0 #4153f0;
+  box-shadow: 0 0.1em 0 #5c9cf0;
   transform: translateY(0.2em);
 }
 
@@ -144,5 +135,45 @@
   :root {
     color: #f6f6f6;
     background-color: #2f2f2f;
+  }
+
+  .file-name {
+    background-color: #2f2f2f;
+    color: white;
+    border: #4153f0 3px solid;
+  }
+
+  .bt-file-select {
+    background-color: #2f2f2f;
+    color: rgb(138, 216, 255);
+    border: #4153f0 3px solid;
+    box-shadow: 0 0.3em 0 #4153f0;
+  }
+
+  .bt-file-select:active {
+    box-shadow: 0 0.1em 0 #4153f0;
+  }
+
+  .content input {
+    background-color: #2f2f2f;
+    background: url("/src/assets/window.svg") no-repeat center;
+    color: white;
+    border: #4153f0 3px solid;
+  }
+
+  .select-num {
+    background-color: #2f2f2f;
+    color: white;
+  }
+
+  .controlls input {
+    background-color: #2f2f2f;
+    color: rgb(138, 216, 255);
+    border: rgb(97, 129, 244) 3px solid;
+    box-shadow: 0 0.3em 0 #4153f0;
+  }
+
+  .controlls input:active {
+    box-shadow: 0 0.1em 0 #4153f0;
   }
 }
