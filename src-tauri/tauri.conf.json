@@ -7,8 +7,8 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "gum-talk",
-    "version": "0.0.0"
+    "productName": "question-talk",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -38,9 +38,9 @@
     },
     "windows": [
       {
-        "fullscreen": true,
+        "fullscreen": false,
         "resizable": true,
-        "title": "TriplePeace式 ガムトーク",
+        "title": "",
         "width": 800,
         "height": 600
       }

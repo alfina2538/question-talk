@@ -33,7 +33,7 @@ function App() {
     }
   }
 
-  // cardを引く
+  // お題を選出する
   async function SelectRandQuestion() {
     if (file_path === "") { alert("ファイルを選択してください。"); return; }
     setSelectQuestion("");
@@ -44,33 +44,6 @@ function App() {
     setQst2(card[1]);
     setQst3(card[2]);
     setQst4(card[3]);
-  }
-
-  // cardの選択
-  async function SelectQuestion() {
-    if (qst_1 === "" || qst_2 === "" || qst_3 === "" || qst_4 === "") {
-      alert("お題を選出していないか\n未入力の項目があります。");
-      return;
-    }
-    const rand_num: number = await invoke("get_rand_num");
-    switch (rand_num) {
-      case 1:
-        setSelectQuestion(qst_1);
-        setCurrentQuestion(1);
-        break;
-      case 2:
-        setSelectQuestion(qst_2);
-        setCurrentQuestion(2);
-        break;
-      case 3:
-        setSelectQuestion(qst_3);
-        setCurrentQuestion(3);
-        break;
-      case 4:
-        setSelectQuestion(qst_4);
-        setCurrentQuestion(4);
-        break;
-    }
   }
 
   return (
@@ -97,6 +70,10 @@ function App() {
                 if (current_question === 1) {
                   setSelectQuestion(e.currentTarget.value);
                 }
+              }}
+              onClick={(e) => {
+                setCurrentQuestion(1);
+                setSelectQuestion(e.currentTarget.value);
               }}/>
           </div>
           <div className="content">
@@ -107,6 +84,10 @@ function App() {
                 if (current_question === 2) {
                   setSelectQuestion(e.currentTarget.value);
                 }
+              }}
+              onClick={(e) => {
+                setCurrentQuestion(2);
+                setSelectQuestion(e.currentTarget.value);
               }}/>
           </div>
         </div>
@@ -119,6 +100,10 @@ function App() {
                 if (current_question === 3) {
                   setSelectQuestion(e.currentTarget.value);
                 }
+              }}
+              onClick={(e) => {
+                setCurrentQuestion(3);
+                setSelectQuestion(e.currentTarget.value);
               }}/>
           </div>
           <div className="content">
@@ -129,6 +114,10 @@ function App() {
                 if (current_question === 4) {
                   setSelectQuestion(e.currentTarget.value);
                 }
+              }}
+              onClick={(e) => {
+                setCurrentQuestion(4);
+                setSelectQuestion(e.currentTarget.value);
               }}/>
           </div>
         </div>
@@ -140,11 +129,6 @@ function App() {
             onClick={(e) => {
               e.preventDefault();
               SelectRandQuestion();
-          }} />
-          <input type="button" value="お題選出"
-            onClick={(e) => {
-              e.preventDefault();
-              SelectQuestion();
           }} />
         </div>
         <div className="settings">
