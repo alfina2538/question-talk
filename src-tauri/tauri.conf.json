@@ -28,6 +28,7 @@
         "icons/icon.ico"
       ],
       "identifier": "com.alfina2538",
+      "category": "talk-game",
       "targets": "all"
     },
     "security": {
