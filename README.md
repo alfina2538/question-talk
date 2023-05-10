@@ -33,3 +33,25 @@ TriplePeace企画 お題トークで使われたお題選出ツールのソー�
     [SSH URLを使ってクローン](https://docs.github.com/ja/get-started/getting-started-with-git/about-remote-repositories#cloning-with-ssh-urls)
 
     上記リンクの情報を参考にご自分の環境にリポジトリをクローンしてください。
+
+## 環境詳細
+
+TriplePeace式お題トークはTauriを用いて  
+React + Typescript + Rustによって作成されています。  
+
+言語の仕様や記述の仕方についてはここで説明しません。  
+
+### ビューのソース
+
+ソフトの見た目に関するソースは  「src/APP.tsx」に書かれています。  
+App.tsxでは主にソフトの見た目と  
+見た目のみの動作に関する処理が記入されています。  
+
+また、配置や色に関する処理が書かれたソースは  
+「src/styles.css」に書かれています。
+
+### プロセスのソース
+
+OSとデータのやり取りを行う、  
+処理結果をビューに渡すなどに関するソースは  
+「src-tauri/src/main.rs」に書かれています。
