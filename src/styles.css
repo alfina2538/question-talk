@@ -63,7 +63,7 @@
 }
 
 .content input {
-  background: url("/src/assets/window.svg") no-repeat center;
+  background: url("/src/assets/window_b.svg") no-repeat center;
   opacity: 0.8;
   background-size: cover;
   height: 80%;
@@ -157,6 +157,10 @@
   .content input {
     background-color: #2f2f2f;
     background: url("/src/assets/window.svg") no-repeat center;
+    opacity: 0.8;
+    background-size: cover;
+    height: 80%;
+    width: 100%;
     color: white;
     border: #4153f0 3px solid;
   }
