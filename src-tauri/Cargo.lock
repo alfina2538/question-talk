@@ -1328,17 +1328,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "gum-talk"
-version = "0.0.0"
-dependencies = [
- "rand 0.8.5",
- "serde",
- "serde_json",
- "tauri",
- "tauri-build",
-]
-
-[[package]]
 name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2365,6 +2354,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2b63bdb0cd06f1f4dedf69b254734f9b45af66e4a031e42a7480257d9898b435"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "question-talk"
+version = "0.1.0"
+dependencies = [
+ "rand 0.8.5",
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build",
 ]
 
 [[package]]
